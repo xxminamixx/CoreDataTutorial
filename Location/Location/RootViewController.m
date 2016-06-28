@@ -7,11 +7,11 @@
 //
 
 #import "RootViewController.h"
+#import "AppDelegate.h"
 
 @interface RootViewController ()
 
 @end
-
 
 @implementation RootViewController
 
@@ -23,17 +23,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [super viewDidLoad];
+    /*
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = appDelegate.managedObjectContext;
+     */
+    
     // タイトルを設定する。
     self.title = @"Locations";
-    // ボタンをセットアップする。
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    addButton = [[UIBarButtonItem alloc]
-                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                 target:self action:@selector(addEvent)];
-    addButton.enabled = NO;
-    self.navigationItem.rightBarButtonItem = addButton;
     
+    // ボタンをセットアップする。
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                   target:self
+                                                                   action:@selector(addEvent)];
+    //addボタン追加
+    self.navigationItem.rightBarButtonItem = self.addButton;
+
     // ロケーションマネージャを起動する。
     [[self locationManager] startUpdatingLocation];
     
@@ -96,6 +104,14 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     addButton.enabled = NO;
+}
+
+- (void)addEvent
+{
+    CLLocation *location = [self.locationManager location];
+    if (!location) {
+        return;
+    }
 }
 
 /*

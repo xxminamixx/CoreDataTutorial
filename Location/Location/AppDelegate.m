@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
 
 @interface AppDelegate ()
 
@@ -14,10 +15,27 @@
 
 @implementation AppDelegate
 
+@synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    RootViewController *rootViewController = [[RootViewController alloc]
+                                              initWithStyle:UITableViewStylePlain];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    if (!context) {
+        // エラーを処理する。
+    }
+    // 管理オブジェクトコンテキストをView Controllerに渡す。
+    rootViewController.managedObjectContext = context;
+    UINavigationController *aNavigationController = [[UINavigationController alloc]
+                                                     initWithRootViewController:rootViewController];
+    self.navigationController = aNavigationController;
+    [_window addSubview:[navigationController view]];
+    [_window makeKeyAndVisible];
+    // [rootViewController release];
+    //[aNavigationController release];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
