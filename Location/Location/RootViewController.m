@@ -25,13 +25,11 @@
     [super viewDidLoad];
     eventsArray = [[NSMutableArray alloc] init];
     
-    /*
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = appDelegate.managedObjectContext;
-     */
     
     // タイトルを設定する。
     self.title = @"Locations";
@@ -54,7 +52,7 @@
     [request setEntity:entity];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"creationDate" ascending:NO];
+                                        initWithKey:@"corectionDate" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:sortDescriptors];
     // [sortDescriptors release];
