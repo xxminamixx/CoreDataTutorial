@@ -18,6 +18,7 @@
 		E90A55181D22070700576C7C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55171D22070700576C7C /* RootViewController.m */; };
 		E90A55271D22197300576C7C /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55261D22197300576C7C /* Event+CoreDataProperties.m */; };
 		E90A552A1D221B7C00576C7C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55291D221B7C00576C7C /* Event.m */; };
+		E90A55341D22529300576C7C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90A55331D22529200576C7C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E90A55261D22197300576C7C /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E90A55281D221B7C00576C7C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		E90A55291D221B7C00576C7C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		E90A55331D22529200576C7C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90A55341D22529300576C7C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +77,7 @@
 		E90A54E21D22047900576C7C = {
 			isa = PBXGroup;
 			children = (
+				E90A55331D22529200576C7C /* CoreLocation.framework */,
 				E90A54ED1D22047900576C7C /* Location */,
 				E90A550A1D22047A00576C7C /* LocationUITests */,
 				E90A54EC1D22047900576C7C /* Products */,
@@ -178,6 +182,15 @@
 				TargetAttributes = {
 					E90A54EA1D22047900576C7C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = EX674L8SA3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					E90A55061D22047A00576C7C = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -365,10 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Location/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.Location;
+				PRODUCT_BUNDLE_IDENTIFIER = sample.Location;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -376,10 +392,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Location/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.Location;
+				PRODUCT_BUNDLE_IDENTIFIER = sample.Location;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -424,6 +443,7 @@
 				E90A55121D22047A00576C7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E90A55131D22047A00576C7C /* Build configuration list for PBXNativeTarget "LocationUITests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +452,7 @@
 				E90A55151D22047A00576C7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
