@@ -23,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    eventsArray = [[NSMutableArray alloc] init];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -42,8 +41,14 @@
     //addボタン追加
     self.navigationItem.rightBarButtonItem = self.addButton;
 
+    //locationManager初期化
+    locationManager = [CLLocationManager new];
+    
     // ロケーションマネージャを起動する。
+    locationManager.delegate = self;
     [[self locationManager] startUpdatingLocation];
+    
+    eventsArray = [[NSMutableArray alloc] init];
     
     //イベントのフェッチ
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -65,10 +70,16 @@
     NSError *error = nil;
     NSMutableArray *mutableFetchResults = [[managedObjectContext
                                             executeFetchRequest:request error:&error] mutableCopy];
+   
+    // 起動時eventArrayに保持していたデータを格納処理追加
+    eventsArray = mutableFetchResults;
+    
     if (mutableFetchResults == nil) {
         // エラーを処理する。
     }
     
+    
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -101,8 +112,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -132,9 +142,11 @@
 - (void)addEvent
 {
     CLLocation *location = [self.locationManager location];
+    /* この部分で制御され位置表示されない
     if (!location) {
         return;
     }
+     */
     // Eventエンティティの新規インスタンスを作成して設定する
     Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event"
                                                           inManagedObjectContext:managedObjectContext];

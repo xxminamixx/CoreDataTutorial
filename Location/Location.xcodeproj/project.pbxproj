@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E90A54F01D22047900576C7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A54EF1D22047900576C7C /* main.m */; };
 		E90A54F31D22047900576C7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A54F21D22047900576C7C /* AppDelegate.m */; };
-		E90A54F61D22047900576C7C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A54F51D22047900576C7C /* ViewController.m */; };
 		E90A54F91D22047900576C7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90A54F71D22047900576C7C /* Main.storyboard */; };
 		E90A54FC1D22047900576C7C /* Location.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E90A54FA1D22047900576C7C /* Location.xcdatamodeld */; };
 		E90A54FE1D22047A00576C7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90A54FD1D22047A00576C7C /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 		E90A55181D22070700576C7C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55171D22070700576C7C /* RootViewController.m */; };
 		E90A55271D22197300576C7C /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55261D22197300576C7C /* Event+CoreDataProperties.m */; };
 		E90A552A1D221B7C00576C7C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55291D221B7C00576C7C /* Event.m */; };
-		E90A55341D22529300576C7C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90A55331D22529200576C7C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +34,6 @@
 		E90A54EF1D22047900576C7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E90A54F11D22047900576C7C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E90A54F21D22047900576C7C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E90A54F41D22047900576C7C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E90A54F51D22047900576C7C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E90A54F81D22047900576C7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E90A54FB1D22047900576C7C /* Location.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Location.xcdatamodel; sourceTree = "<group>"; };
 		E90A54FD1D22047A00576C7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +48,6 @@
 		E90A55261D22197300576C7C /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E90A55281D221B7C00576C7C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		E90A55291D221B7C00576C7C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		E90A55331D22529200576C7C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90A55341D22529300576C7C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +71,6 @@
 		E90A54E21D22047900576C7C = {
 			isa = PBXGroup;
 			children = (
-				E90A55331D22529200576C7C /* CoreLocation.framework */,
 				E90A54ED1D22047900576C7C /* Location */,
 				E90A550A1D22047A00576C7C /* LocationUITests */,
 				E90A54EC1D22047900576C7C /* Products */,
@@ -102,8 +95,6 @@
 				E90A55291D221B7C00576C7C /* Event.m */,
 				E90A54F11D22047900576C7C /* AppDelegate.h */,
 				E90A54F21D22047900576C7C /* AppDelegate.m */,
-				E90A54F41D22047900576C7C /* ViewController.h */,
-				E90A54F51D22047900576C7C /* ViewController.m */,
 				E90A55161D22070700576C7C /* RootViewController.h */,
 				E90A55171D22070700576C7C /* RootViewController.m */,
 				E90A54F71D22047900576C7C /* Main.storyboard */,
@@ -242,7 +233,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90A54F61D22047900576C7C /* ViewController.m in Sources */,
 				E90A54F31D22047900576C7C /* AppDelegate.m in Sources */,
 				E90A55271D22197300576C7C /* Event+CoreDataProperties.m in Sources */,
 				E90A54FC1D22047900576C7C /* Location.xcdatamodeld in Sources */,
