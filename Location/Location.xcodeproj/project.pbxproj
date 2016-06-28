@@ -15,6 +15,7 @@
 		E90A54FE1D22047A00576C7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90A54FD1D22047A00576C7C /* Assets.xcassets */; };
 		E90A55011D22047A00576C7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90A54FF1D22047A00576C7C /* LaunchScreen.storyboard */; };
 		E90A550C1D22047A00576C7C /* LocationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A550B1D22047A00576C7C /* LocationUITests.m */; };
+		E90A55181D22070700576C7C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55171D22070700576C7C /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		E90A55071D22047A00576C7C /* LocationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90A550B1D22047A00576C7C /* LocationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationUITests.m; sourceTree = "<group>"; };
 		E90A550D1D22047A00576C7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E90A55161D22070700576C7C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E90A55171D22070700576C7C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				E90A54F21D22047900576C7C /* AppDelegate.m */,
 				E90A54F41D22047900576C7C /* ViewController.h */,
 				E90A54F51D22047900576C7C /* ViewController.m */,
+				E90A55161D22070700576C7C /* RootViewController.h */,
+				E90A55171D22070700576C7C /* RootViewController.m */,
 				E90A54F71D22047900576C7C /* Main.storyboard */,
 				E90A54FD1D22047A00576C7C /* Assets.xcassets */,
 				E90A54FF1D22047A00576C7C /* LaunchScreen.storyboard */,
@@ -218,6 +223,7 @@
 				E90A54F31D22047900576C7C /* AppDelegate.m in Sources */,
 				E90A54FC1D22047900576C7C /* Location.xcdatamodeld in Sources */,
 				E90A54F01D22047900576C7C /* main.m in Sources */,
+				E90A55181D22070700576C7C /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
