@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    eventsArray = [[NSMutableArray alloc] init];
     
     /*
     self.tableView.delegate = self;
@@ -45,6 +46,30 @@
 
     // ロケーションマネージャを起動する。
     [[self locationManager] startUpdatingLocation];
+    
+    //イベントのフェッチ
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event"
+                                              inManagedObjectContext:managedObjectContext];
+    [request setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"creationDate" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    // [sortDescriptors release];
+    // [sortDescriptor release];
+    
+    // [self setEventsArray:mutableFetchResults];
+    // [mutableFetchResults release];
+    // [request release];
+    
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext
+                                            executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        // エラーを処理する。
+    }
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -83,8 +108,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [eventsArray count];
 }
 
 - (CLLocationManager *)locationManager {
@@ -120,18 +144,52 @@
     [event setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
     [event setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
     [event setCorectionDate:[NSDate date]];
+    
+    NSError *error = nil;
+    if (![managedObjectContext save:&error]) {
+        // エラーを処理する。
+    }
+    
+    [eventsArray insertObject:event atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                          withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                          atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    // タイムスタンプ用の日付フォーマッタ
+    static NSDateFormatter *dateFormatter = nil;
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+    // 緯度と経度用の数値フォーマッタ
+    static NSNumberFormatter *numberFormatter = nil;
+    if (numberFormatter == nil) {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setMaximumFractionDigits:3];
+    }
+    static NSString *CellIdentifier = @"Cell";
+    // 新規セルをデキューまたは作成する
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                       reuseIdentifier:CellIdentifier] init];
+    }
+    Event *event = (Event *)[eventsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dateFormatter stringFromDate:[event corectionDate]];
+    NSString *string = [NSString stringWithFormat:@"%@, %@",
+                        [numberFormatter stringFromNumber:[event latitude]],
+                        [numberFormatter stringFromNumber:[event longitude]]];
+    cell.detailTextLabel.text = string;
     return cell;
 }
-*/
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
