@@ -16,6 +16,7 @@
 		E90A55011D22047A00576C7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90A54FF1D22047A00576C7C /* LaunchScreen.storyboard */; };
 		E90A550C1D22047A00576C7C /* LocationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A550B1D22047A00576C7C /* LocationUITests.m */; };
 		E90A55181D22070700576C7C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55171D22070700576C7C /* RootViewController.m */; };
+		E90A55271D22197300576C7C /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A55261D22197300576C7C /* Event+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		E90A550D1D22047A00576C7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E90A55161D22070700576C7C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		E90A55171D22070700576C7C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E90A55251D22197300576C7C /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E90A55261D22197300576C7C /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		E90A54ED1D22047900576C7C /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				E90A55251D22197300576C7C /* Event+CoreDataProperties.h */,
+				E90A55261D22197300576C7C /* Event+CoreDataProperties.m */,
 				E90A54F11D22047900576C7C /* AppDelegate.h */,
 				E90A54F21D22047900576C7C /* AppDelegate.m */,
 				E90A54F41D22047900576C7C /* ViewController.h */,
@@ -221,6 +226,7 @@
 			files = (
 				E90A54F61D22047900576C7C /* ViewController.m in Sources */,
 				E90A54F31D22047900576C7C /* AppDelegate.m in Sources */,
+				E90A55271D22197300576C7C /* Event+CoreDataProperties.m in Sources */,
 				E90A54FC1D22047900576C7C /* Location.xcdatamodeld in Sources */,
 				E90A54F01D22047900576C7C /* main.m in Sources */,
 				E90A55181D22070700576C7C /* RootViewController.m in Sources */,

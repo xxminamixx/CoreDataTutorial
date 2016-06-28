@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "AppDelegate.h"
+#import "Event.h"
 
 @interface RootViewController ()
 
@@ -112,6 +113,13 @@
     if (!location) {
         return;
     }
+    // Eventエンティティの新規インスタンスを作成して設定する
+    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                                          inManagedObjectContext:managedObjectContext];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    [event setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
+    [event setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
+    [event setCorectionDate:[NSDate date]];
 }
 
 /*
